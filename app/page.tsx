@@ -1,609 +1,313 @@
-const services = [
-  {
-    title: "Embroidery",
-    text: "Professional stitched logos, names, hat designs, left chest logos, jacket backs, bags, chair backs, and more.",
-  },
-  {
-    title: "Heat Transfers",
-    text: "Clean full-color designs for shirts, sweatshirts, jackets, bags, and custom apparel.",
-  },
-];
+import Image from "next/image";
+import SiteHeader from "./site-header";
+import QuoteForm from "./quote-form";
 
 const products = [
   "Hats",
-  "T-Shirts",
+  "T-shirts",
   "Sweatshirts",
   "Jackets",
   "Bags",
-  "Chair Backs",
+  "Chair backs",
 ];
 
-const pricing = [
-  ["Hat Embroidery", "Starting at $__"],
-  ["Left Chest Logo", "Starting at $__"],
-  ["Jacket Back", "Starting at $__"],
-  ["Name / Personalization", "Starting at $__"],
-  ["Heat Transfer", "Starting at $__"],
-];
-
-const galleryCategories = [
-  "Hats",
-  "Left Chest",
-  "Jacket Backs",
-  "Shirts & Sweatshirts",
-  "Bags",
-  "Chair Backs",
+const serviceDetails = [
+  {
+    number: "01",
+    name: "Embroidery",
+    description:
+      "Thread-based decoration for logos, names and personalization on apparel, hats, bags, jacket backs, chair backs and more.",
+    note: "A dimensional finish, stitched in-house",
+  },
+  {
+    number: "02",
+    name: "Heat transfer",
+    description:
+      "Full-color designs for shirts, sweatshirts, jackets, bags and custom apparel.",
+    note: "Full-color apparel decoration",
+  },
 ];
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-[#f4efe7] text-[#171717]">
-
-      {/* NAV */}
-      <nav className="sticky top-0 z-50 border-b border-black/10 bg-[#f4efe7]/95 backdrop-blur-xl">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 md:px-8">
-
-          <div className="flex items-center gap-4">
-
-            <img
-              src="/RBE_Logo.jpeg"
-              alt="Royal Brand Embroidery logo"
-              className="h-12 w-auto"
-            />
-
-            <div>
-              <p className="text-lg font-black tracking-[0.12em] text-[#6d1118] md:text-xl">
-                ROYAL BRAND
-              </p>
-
-              <p className="mt-1 text-[9px] font-bold tracking-[0.26em] text-black/45">
-                EMBROIDERY
-              </p>
-            </div>
-
-          </div>
-
-          <div className="hidden items-center gap-7 text-sm font-semibold text-black/60 md:flex">
-
-            <a href="#services" className="transition hover:text-[#6d1118]">
-              Services
-            </a>
-
-            <a href="#pricing" className="transition hover:text-[#6d1118]">
-              Pricing
-            </a>
-
-            <a href="#gallery" className="transition hover:text-[#6d1118]">
-              Gallery
-            </a>
-
-            <a href="#suppliers" className="transition hover:text-[#6d1118]">
-              Suppliers
-            </a>
-
-            <a
-              href="#quote"
-              className="rounded-full bg-[#6d1118] px-5 py-2 text-white transition hover:bg-black"
-            >
-              Get a Quote
-            </a>
-
-          </div>
-
-        </div>
-      </nav>
-
-      {/* HERO */}
-      <section className="px-6 py-8 md:px-8 md:py-12">
-        <div className="mx-auto grid max-w-7xl gap-6 lg:grid-cols-[1.05fr_0.95fr]">
-
-          {/* HERO TEXT */}
-          <div className="relative flex min-h-[620px] flex-col justify-between overflow-hidden rounded-[32px] border border-black/10 bg-[#171717] p-8 text-white md:p-12 lg:p-14">
-
-            <div className="pointer-events-none absolute -right-28 top-[-80px] h-[380px] w-[380px] rounded-full bg-[#6d1118]/25 blur-[120px]" />
-
-            <div className="relative">
-
-              <p className="text-[10px] font-black tracking-[0.38em] text-[#d38a90]">
-                CUSTOM EMBROIDERY // HEAT TRANSFERS
-              </p>
-
-              <h1 className="mt-8 text-5xl font-black leading-[0.9] tracking-[-0.04em] sm:text-6xl md:text-7xl">
-                ROYAL
-                <br />
-                BRAND
-                <br />
-                <span className="text-[#b74b55]">
-                  EMBROIDERY.
-                </span>
-              </h1>
-
-              <p className="mt-8 max-w-xl text-base leading-relaxed text-white/65 md:text-lg">
-                Custom embroidery and heat transfer for hats, shirts,
-                sweatshirts, jackets, bags, chair backs, and more.
-              </p>
-
-              <p className="mt-5 text-xs font-bold uppercase tracking-[0.22em] text-white/35">
-                An Impression Branded for Life
-              </p>
-
-            </div>
-
-            <div className="relative mt-12 flex flex-col gap-3 border-t border-white/10 pt-8 sm:flex-row">
-
-              <a
-                href="#quote"
-                className="rounded-full bg-[#8b1e27] px-7 py-3 text-center font-black text-white transition hover:bg-white hover:text-black"
-              >
-                Request a Quote →
-              </a>
-
-              <a
-                href="#gallery"
-                className="rounded-full border border-white/20 px-7 py-3 text-center font-bold transition hover:bg-white hover:text-black"
-              >
-                View Our Work
-              </a>
-
-            </div>
-
-          </div>
-
-          {/* HERO BRAND IMAGE */}
-          <div className="flex items-center justify-center overflow-hidden rounded-[32px] border border-black/10 bg-white p-8 md:p-12">
-
-            <img
-              src="/RoyalBrandLogo.jpeg"
-              alt="Royal Brand Embroidery"
-              className="h-auto w-full max-w-xl object-contain"
-            />
-
-          </div>
-
-        </div>
-      </section>
-
-      {/* SERVICES */}
-      <section
-        id="services"
-        className="px-6 py-24 md:px-8 md:py-32"
-      >
-        <div className="mx-auto max-w-7xl">
-
-          <div className="mb-12 max-w-3xl">
-
-            <p className="text-[10px] font-black tracking-[0.35em] text-[#6d1118]">
-              WHAT WE DO
-            </p>
-
-            <h2 className="mt-5 text-4xl font-black leading-[0.95] md:text-6xl">
-              Decoration Services
-            </h2>
-
-            <p className="mt-6 text-lg leading-relaxed text-black/55">
-              Professional customization for businesses, teams,
-              organizations, events, and personal orders.
-            </p>
-
-          </div>
-
-          <div className="grid gap-5 md:grid-cols-2">
-
-            {services.map((service, index) => (
-              <div
-                key={service.title}
-                className="rounded-[28px] border border-black/10 bg-white/65 p-8 shadow-sm"
-              >
-
-                <p className="text-[9px] font-black tracking-[0.3em] text-[#6d1118]/60">
-                  SERVICE // {String(index + 1).padStart(2, "0")}
-                </p>
-
-                <h3 className="mt-5 text-3xl font-black">
-                  {service.title}
-                </h3>
-
-                <p className="mt-5 leading-relaxed text-black/55">
-                  {service.text}
-                </p>
-
-                <a
-                  href="#quote"
-                  className="mt-7 inline-block text-sm font-black tracking-[0.12em] text-[#6d1118]"
-                >
-                  GET A QUOTE →
-                </a>
-
-              </div>
-            ))}
-
-          </div>
-
-        </div>
-      </section>
-
-      {/* WHAT WE CUSTOMIZE */}
-      <section className="border-y border-black/10 bg-[#171717] px-6 py-24 text-white md:px-8">
-        <div className="mx-auto max-w-7xl">
-
-          <div className="mb-12">
-
-            <p className="text-[10px] font-black tracking-[0.35em] text-[#d38a90]">
-              CUSTOMIZE // YOUR WAY
-            </p>
-
-            <h2 className="mt-4 text-4xl font-black md:text-6xl">
-              What We Customize
-            </h2>
-
-          </div>
-
-          <div className="grid grid-cols-2 gap-4 md:grid-cols-3">
-
-            {products.map((item, index) => (
-              <div
-                key={item}
-                className="rounded-2xl border border-white/10 bg-white/[0.03] p-6 transition hover:border-[#b74b55]/70"
-              >
-
-                <p className="text-[9px] font-black tracking-[0.28em] text-white/25">
-                  {String(index + 1).padStart(2, "0")}
-                </p>
-
-                <p className="mt-5 text-2xl font-black">
-                  {item}
-                </p>
-
-                <div className="mt-5 h-[2px] w-8 bg-[#b74b55]" />
-
-              </div>
-            ))}
-
-          </div>
-
-        </div>
-      </section>
-
-      {/* ABOUT / OWNER */}
-      <section className="px-6 py-24 md:px-8 md:py-32">
-        <div className="mx-auto grid max-w-7xl gap-6 lg:grid-cols-[0.9fr_1.1fr]">
-
-          <div className="overflow-hidden rounded-[32px] border border-black/10 bg-white">
-            <img
-              src="/Faceshot.jpeg"
-              alt="Royal Brand Embroidery owner"
-              className="h-auto w-full"
-            />
-          </div>
-
-          <div className="flex flex-col justify-center rounded-[32px] border border-black/10 bg-white/60 p-8 md:p-12">
-
-            <p className="text-[10px] font-black tracking-[0.35em] text-[#6d1118]">
-              ABOUT // ROYAL BRAND
-            </p>
-
-            <h2 className="mt-5 text-4xl font-black leading-[0.95] md:text-6xl">
-              Custom Work.
+    <>
+      <a className="skip-link" href="#main-content">
+        Skip to content
+      </a>
+      <div className="announcement" aria-label="Business motto">
+        <span>An impression branded for life</span>
+        <span className="announcement-rule" aria-hidden="true" />
+        <span>Embroidery · Heat transfer · Custom apparel</span>
+      </div>
+
+      <SiteHeader />
+
+      <main id="main-content">
+        <section className="hero section-shell" aria-labelledby="hero-title">
+          <div className="hero-copy">
+            <p className="eyebrow light-eyebrow">Royal Brand Embroidery</p>
+            <h1 id="hero-title">
+              Put your name
               <br />
-              Personal Service.
-            </h2>
-
-            <p className="mt-7 max-w-xl text-lg leading-relaxed text-black/55">
-              Royal Brand Embroidery focuses on quality custom work
-              with personal attention from the first conversation
-              through the finished product.
+              <em>on good things.</em>
+            </h1>
+            <p className="hero-intro">
+              Custom embroidery and heat transfer for the people, teams,
+              organizations and businesses you want to represent.
             </p>
-
-            <p className="mt-6 max-w-xl leading-relaxed text-black/45">
-              Whether you need a few personalized pieces or apparel
-              for a team, organization, business, or event, each project
-              is handled with care and attention to detail.
-            </p>
-
-          </div>
-
-        </div>
-      </section>
-
-      {/* MACHINES */}
-      <section className="border-y border-black/10 bg-[#eee7de] px-6 py-24 md:px-8 md:py-32">
-        <div className="mx-auto max-w-7xl">
-
-          <div className="mb-12 max-w-3xl">
-
-            <p className="text-[10px] font-black tracking-[0.35em] text-[#6d1118]">
-              BEHIND THE SCENES
-            </p>
-
-            <h2 className="mt-5 text-4xl font-black md:text-6xl">
-              Made In-House.
-            </h2>
-
-            <p className="mt-6 text-lg leading-relaxed text-black/50">
-              A look at the equipment and process behind Royal Brand Embroidery.
-            </p>
-
-          </div>
-
-          <div className="grid gap-5 md:grid-cols-2">
-
-            <div className="overflow-hidden rounded-[28px] border border-black/10 bg-white">
-              <img
-                src="/Machines.jpeg"
-                alt="Royal Brand Embroidery equipment"
-                className="h-auto w-full"
-              />
-            </div>
-
-            <div className="overflow-hidden rounded-[28px] border border-black/10 bg-white">
-              <img
-                src="/Machines2x.jpeg"
-                alt="Royal Brand Embroidery machines"
-                className="h-auto w-full"
-              />
-            </div>
-
-          </div>
-
-        </div>
-      </section>
-
-      {/* PRICING */}
-      <section
-        id="pricing"
-        className="px-6 py-24 md:px-8 md:py-32"
-      >
-        <div className="mx-auto max-w-7xl">
-
-          <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr]">
-
-            <div>
-
-              <p className="text-[10px] font-black tracking-[0.35em] text-[#6d1118]">
-                BASE // PRICING
-              </p>
-
-              <h2 className="mt-5 text-4xl font-black md:text-6xl">
-                Starting Prices
-              </h2>
-
-              <p className="mt-6 max-w-lg leading-relaxed text-black/50">
-                Final pricing may vary depending on garment type,
-                quantity, design size, stitch count, number of colors,
-                and customization needs.
-              </p>
-
-              <a
-                href="#quote"
-                className="mt-8 inline-block rounded-full bg-black px-7 py-3 font-black text-white transition hover:bg-[#6d1118]"
-              >
-                Request Exact Quote →
+            <div className="hero-actions">
+              <a className="button button-cream" href="#quote">
+                Start a quote <span aria-hidden="true">↗</span>
               </a>
-
+              <a className="text-link light-link" href="#products">
+                Explore what we customize <span aria-hidden="true">↓</span>
+              </a>
             </div>
-
-            <div className="overflow-hidden rounded-[28px] border border-black/10 bg-white/60">
-
-              {pricing.map(([item, price], index) => (
-                <div
-                  key={item}
-                  className="flex items-center justify-between gap-6 border-b border-black/10 p-6 last:border-b-0"
-                >
-
-                  <div className="flex items-center gap-4">
-
-                    <p className="text-[9px] font-black tracking-[0.25em] text-[#6d1118]/45">
-                      {String(index + 1).padStart(2, "0")}
-                    </p>
-
-                    <p className="font-black">
-                      {item}
-                    </p>
-
-                  </div>
-
-                  <p className="text-sm font-bold text-black/45">
-                    {price}
-                  </p>
-
-                </div>
-              ))}
-
+            <div className="hero-signoff">
+              <span className="stitch-line" aria-hidden="true" />
+              <span>Made personal. Made to be worn.</span>
             </div>
-
           </div>
 
-        </div>
-      </section>
-
-      {/* GALLERY */}
-      <section
-        id="gallery"
-        className="border-y border-black/10 bg-white/70 px-6 py-24 md:px-8 md:py-32"
-      >
-        <div className="mx-auto max-w-7xl">
-
-          <div className="mb-12 max-w-3xl">
-
-            <p className="text-[10px] font-black tracking-[0.35em] text-[#6d1118]">
-              OUR WORK // GALLERY
-            </p>
-
-            <h2 className="mt-5 text-4xl font-black md:text-6xl">
-              Custom Work
-            </h2>
-
-            <p className="mt-6 text-lg leading-relaxed text-black/50">
-              Browse examples of Royal Brand Embroidery projects.
-            </p>
-
-          </div>
-
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-
-            {galleryCategories.map((category, index) => (
-              <div
-                key={category}
-                className="flex min-h-[220px] flex-col justify-between rounded-[24px] border border-black/10 bg-[#f4efe7] p-7"
-              >
-
-                <p className="text-[9px] font-black tracking-[0.28em] text-[#6d1118]/45">
-                  GALLERY // {String(index + 1).padStart(2, "0")}
-                </p>
-
-                <div>
-
-                  <p className="text-2xl font-black">
-                    {category}
-                  </p>
-
-                  <p className="mt-2 text-sm text-black/40">
-                    Project photos coming soon
-                  </p>
-
-                </div>
-
-              </div>
-            ))}
-
-          </div>
-
-        </div>
-      </section>
-
-      {/* SUPPLIERS */}
-      <section
-        id="suppliers"
-        className="px-6 py-24 md:px-8 md:py-32"
-      >
-        <div className="mx-auto max-w-7xl">
-
-          <div className="grid gap-12 lg:grid-cols-2">
-
-            <div>
-
-              <p className="text-[10px] font-black tracking-[0.35em] text-[#6d1118]">
-                GARMENTS // SUPPLIERS
-              </p>
-
-              <h2 className="mt-5 text-4xl font-black md:text-6xl">
-                Choose Your Garment
-              </h2>
-
-              <p className="mt-6 max-w-xl leading-relaxed text-black/50">
-                Browse supplier catalogs for shirts, polos, jackets,
-                sweatshirts, hats, bags, and more. Send the item number
-                you want customized when requesting your quote.
-              </p>
-
-            </div>
-
-            <div className="grid gap-4 sm:grid-cols-2">
-
-              <div className="rounded-2xl border border-black/10 bg-white/60 p-6">
-                <p className="text-xl font-black">
-                  SanMar
-                </p>
-
-                <p className="mt-2 text-sm text-black/40">
-                  Supplier link coming soon
-                </p>
-              </div>
-
-              <div className="rounded-2xl border border-black/10 bg-white/60 p-6">
-                <p className="text-xl font-black">
-                  S&S Activewear
-                </p>
-
-                <p className="mt-2 text-sm text-black/40">
-                  Supplier link coming soon
-                </p>
-              </div>
-
-              <div className="rounded-2xl border border-black/10 bg-white/60 p-6">
-                <p className="text-xl font-black">
-                  alphabroder
-                </p>
-
-                <p className="mt-2 text-sm text-black/40">
-                  Supplier link coming soon
-                </p>
-              </div>
-
-            </div>
-
-          </div>
-
-        </div>
-      </section>
-
-      {/* QUOTE */}
-      <section
-        id="quote"
-        className="px-6 pb-24 md:px-8 md:pb-32"
-      >
-        <div className="mx-auto max-w-7xl">
-
-          <div className="relative overflow-hidden rounded-[32px] bg-[#6d1118] p-8 text-white md:p-14">
-
-            <div className="pointer-events-none absolute -right-20 -top-24 text-[180px] font-black leading-none text-white/[0.04] md:text-[260px]">
-              RBE
-            </div>
-
-            <div className="relative max-w-3xl">
-
-              <p className="text-[10px] font-black tracking-[0.35em] text-white/55">
-                REQUEST // A QUOTE
-              </p>
-
-              <h2 className="mt-5 text-5xl font-black leading-[0.9] md:text-7xl">
-                LET&apos;S MAKE
+          <div className="hero-visual">
+            <Image
+              className="hero-photo"
+              src="/Faceshot.jpeg"
+              alt="Royal Brand Embroidery owner in the embroidery shop"
+              fill
+              priority
+              sizes="(max-width: 850px) 100vw, 50vw"
+            />
+            <div className="photo-caption">
+              <span className="caption-mark" aria-hidden="true">RB</span>
+              <span>
+                <strong>Custom work.</strong>
                 <br />
-                SOMETHING.
-              </h2>
+                Personal service.
+              </span>
+            </div>
+            <span className="photo-index">THE SHOP · ROYAL BRAND</span>
+          </div>
+          <div className="hero-footnote">
+            <span>01 / CRAFT</span>
+            <span>Good work deserves to be remembered.</span>
+            <a href="#services" aria-label="Scroll to services">↓</a>
+          </div>
+        </section>
 
-              <p className="mt-6 max-w-2xl text-base leading-relaxed text-white/70 md:text-lg">
-                Tell us what you need, how many pieces you need,
-                and what type of customization you want.
+        <section className="services section-shell" id="services" aria-labelledby="services-title">
+          <div className="section-heading services-heading">
+            <div>
+              <p className="eyebrow">Decoration, your way</p>
+              <h2 id="services-title">The mark makes<br />the piece.</h2>
+            </div>
+            <p className="section-deck">
+              Tell us what you want decorated and how you want it to look.
+              We offer two ways to bring your design to life.
+            </p>
+          </div>
+
+          <div className="service-list">
+            {serviceDetails.map((service) => (
+              <article className="service-row" key={service.number}>
+                <span className="row-number">{service.number}</span>
+                <h3>{service.name}</h3>
+                <p>{service.description}</p>
+                <span className="service-note">{service.note}</span>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section className="products-section" id="products" aria-labelledby="products-title">
+          <div className="section-shell products-layout">
+            <div className="products-intro">
+              <p className="eyebrow light-eyebrow">Choose your canvas</p>
+              <h2 id="products-title">Give useful things<br /><em>your mark.</em></h2>
+              <p>
+                From personalized apparel to a group order, tell us
+                what you have in mind and what you want it to say.
               </p>
-
-              <a
-                href="mailto:YOUR-EMAIL-HERE?subject=Royal%20Brand%20Embroidery%20Quote"
-                className="mt-8 inline-block rounded-full bg-white px-8 py-4 font-black text-[#6d1118]"
-              >
-                Request a Quote →
+              <a className="button button-outline" href="#quote">
+                Ask about your project <span aria-hidden="true">↗</span>
               </a>
-
             </div>
 
+            <div className="product-index" aria-label="Products available for customization">
+              {products.map((product, index) => (
+                <a href="#quote" className="product-line" key={product}>
+                  <span className="product-number">{String(index + 1).padStart(2, "0")}</span>
+                  <span className="product-name">{product}</span>
+                  <span className="product-arrow" aria-hidden="true">↗</span>
+                </a>
+              ))}
+              <p className="product-note">
+                Have another item in mind? Include it in your quote request.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section className="work section-shell" id="work" aria-labelledby="work-title">
+          <div className="section-heading work-heading">
+            <div>
+              <p className="eyebrow">Inside the workroom</p>
+              <h2 id="work-title">From thread<br />to finished detail.</h2>
+            </div>
+            <p className="section-deck">
+              A look at the people and equipment behind Royal Brand Embroidery.
+              We&apos;re building a project gallery; the photographs here show the
+              real shop and work in progress.
+            </p>
           </div>
 
-        </div>
-      </section>
-
-      {/* FOOTER */}
-      <footer className="border-t border-black/10 px-6 py-10 md:px-8">
-        <div className="mx-auto flex max-w-7xl flex-col justify-between gap-5 text-center md:flex-row md:items-center md:text-left">
-
-          <div>
-
-            <p className="font-black tracking-[0.16em] text-[#6d1118]">
-              ROYAL BRAND EMBROIDERY
-            </p>
-
-            <p className="mt-2 text-[10px] tracking-[0.25em] text-black/35">
-              AN IMPRESSION BRANDED FOR LIFE
-            </p>
-
+          <div className="work-gallery">
+            <figure className="work-feature">
+              <div className="work-image work-image-machine">
+                <Image
+                  src="/Machines2x.jpeg"
+                  alt="Embroidery machine stitching a design on a cap"
+                  fill
+                  sizes="(max-width: 760px) 100vw, 60vw"
+                />
+                <span className="image-corner-label">AT THE MACHINE</span>
+              </div>
+              <figcaption>
+                <span>Machine embroidery</span>
+                <span>01 / IN PROGRESS</span>
+              </figcaption>
+            </figure>
+            <figure className="work-detail">
+              <div className="work-image work-image-detail">
+                <Image
+                  src="/Machines.jpeg"
+                  alt="Embroidery equipment and garments in the shop"
+                  fill
+                  sizes="(max-width: 760px) 100vw, 34vw"
+                />
+              </div>
+              <figcaption>
+                <span>Inside the workroom</span>
+                <span>02 / EQUIPMENT</span>
+              </figcaption>
+            </figure>
           </div>
-
-          <p className="text-xs text-black/30">
-            © 2026 Royal Brand Embroidery. All Rights Reserved.
+          <p className="gallery-disclosure">
+            More finished project photography will be added as it becomes available.
           </p>
+        </section>
 
+        <section className="about-section" aria-labelledby="about-title">
+          <div className="section-shell about-layout">
+            <div className="about-image-wrap">
+              <Image
+                className="about-stitch"
+                src="/RBE_Logo.jpeg"
+                alt="Close-up of Royal Brand Embroidery's stitched RBE logo"
+                fill
+                sizes="(max-width: 800px) 100vw, 40vw"
+              />
+              <span className="about-image-tag">THE STITCHED MARK</span>
+            </div>
+            <div className="about-copy">
+              <p className="eyebrow light-eyebrow">A more personal kind of custom</p>
+              <h2 id="about-title">Good work.<br /><em>Made with care.</em></h2>
+              <p>
+                Royal Brand Embroidery focuses on quality custom work with
+                personal attention from the first conversation through the
+                finished product.
+              </p>
+              <p>
+                Whether you need a few personalized pieces or apparel for a
+                team, organization, business or event, each project is handled
+                with care and attention to detail.
+              </p>
+              <a className="text-link light-link" href="#quote">
+                Tell us what you have in mind <span aria-hidden="true">↗</span>
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <section className="quote-context section-shell" id="pricing" aria-labelledby="pricing-title">
+          <div className="quote-context-lead">
+            <p className="eyebrow">Clear quotes, made for your project</p>
+            <h2 id="pricing-title">Every detail<br />changes the quote.</h2>
+          </div>
+          <div className="quote-context-copy">
+            <p>
+              Pricing depends on the garment, quantity, design size, stitch
+              count, number of colors and personalization. Share the details
+              you know and we can quote the actual project.
+            </p>
+            <div className="quote-factors" aria-label="Factors considered in project pricing">
+              <span>Garment &amp; quantity</span>
+              <span>Design &amp; placement</span>
+              <span>Colors &amp; personalization</span>
+            </div>
+            <p className="pricing-note">
+              No starting prices are published here. A quote is needed for
+              accurate project pricing.
+            </p>
+          </div>
+        </section>
+
+        <section className="suppliers-section" id="suppliers" aria-labelledby="suppliers-title">
+          <div className="section-shell suppliers-layout">
+            <div>
+              <p className="eyebrow">Bring your own or browse</p>
+              <h2 id="suppliers-title">Finding the<br />right blank.</h2>
+            </div>
+            <div className="suppliers-copy">
+              <p>
+                Browse a supplier catalog for shirts, polos, jackets,
+                sweatshirts, hats, bags and more. If you have an item number,
+                include it with your quote request.
+              </p>
+              <div className="supplier-list" aria-label="Supplier catalog links currently being prepared">
+                <span>SanMar</span>
+                <span>S&amp;S Activewear</span>
+                <span>alphabroder</span>
+              </div>
+              <p className="supplier-note">Catalog links are being prepared.</p>
+            </div>
+          </div>
+        </section>
+
+        <section className="quote-section" id="quote" aria-labelledby="quote-title">
+          <div className="section-shell quote-layout">
+            <div className="quote-intro">
+              <p className="eyebrow light-eyebrow">Start with the details</p>
+              <h2 id="quote-title">Let&apos;s make<br /><em>it yours.</em></h2>
+              <p>
+                Tell us what you&apos;re looking to customize. The form prepares
+                a clear project brief you can copy into an email.
+              </p>
+              <p className="quote-delivery-note">
+                {process.env.NEXT_PUBLIC_QUOTE_EMAIL
+                  ? "Your answers stay in this browser. We will prepare an email draft for you to review and send."
+                  : "The website is not configured to deliver quote requests by email yet. Your information stays in this browser and will not be sent or stored."}
+              </p>
+            </div>
+            <QuoteForm recipient={process.env.NEXT_PUBLIC_QUOTE_EMAIL} />
+          </div>
+        </section>
+      </main>
+
+      <footer className="site-footer">
+        <div className="section-shell footer-main">
+          <a href="#main-content" className="footer-brand" aria-label="Royal Brand Embroidery, back to top">
+            <span>ROYAL BRAND</span>
+            <small>EMBROIDERY</small>
+          </a>
+          <p>An impression branded for life.</p>
+          <a href="#quote" className="footer-quote">Prepare a quote brief <span aria-hidden="true">↑</span></a>
+        </div>
+        <div className="section-shell footer-bottom">
+          <span>© {new Date().getFullYear()} Royal Brand Embroidery</span>
+          <a href="#main-content">Back to top ↑</a>
         </div>
       </footer>
-
-    </main>
+    </>
   );
 }
